@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const equipmentSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true }, // equipment name
-    type: { type: String, required: true, enum: ["Cardio", "Strength", "Flexibility"] }, // dropdown with 3 options
+    type: { type: String, required: true,}, // dropdown with 3 options
     manufacturer: { type: String, required: true },
     serialNumber: { type: String, required: true, unique: true },
     zone: { type: String, required: true }, // equipment zone
@@ -14,13 +14,7 @@ const equipmentSchema = new mongoose.Schema(
     vendor: { type: String, required: true },
     maintenanceSchedule: {
       type: String,
-      enum: [
-        "Daily",
-        "Weekly",
-        "Monthly",
-        "Quarterly",
-        "Yearly"
-      ], // dropdown with 5 options
+    // dropdown with 5 options
       required: true,
     },
     nextMaintenanceDate: { type: Date, required: true },
