@@ -96,3 +96,19 @@ export const removeEquipment = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+export const listDueMaintenance = async (req, res) => {
+  try {
+    const today = new Date();
+    const tenDaysLater = new Date();
+    tenDaysLater.setDate(today.getDate() + 10);
+
+    const equipments = await Equipment.find({
+      maintenanceDate: { $gte: today, $lte: tenDaysLater }
+    });
+
+    res.json(equipments);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch due maintenance equipment" });
+  }
+};
+
