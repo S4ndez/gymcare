@@ -7,11 +7,11 @@ const equipmentSchema = new mongoose.Schema(
     type: { type: String, required: true,}, // dropdown with 3 options
     manufacturer: { type: String, required: true },
     serialNumber: { type: String, required: true, unique: true },
-    zone: { type: String, required: true }, // equipment zone
+    zone: { type: String,  }, // equipment zone
     purchaseDate: { type: Date, required: true },
     warrantyExpiry: { type: Date, required: true },
     price: { type: Number, required: true },
-    vendor: { type: String, required: true },
+    vendor: { type: String,  },
     maintenanceSchedule: {
       type: String,
     // dropdown with 5 options
@@ -20,7 +20,7 @@ const equipmentSchema = new mongoose.Schema(
     nextMaintenanceDate: { type: Date, required: true },
     maintenanceNotes: { type: String },
     description: { type: String },
-    userCapacity: { type: Number, required: true },
+    userCapacity: { type: Number, },
     powerRequirement: { type: String }, // e.g., "220V", "110V"
   },
   { timestamps: true }
