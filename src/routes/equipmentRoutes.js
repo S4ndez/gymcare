@@ -5,7 +5,9 @@ import {
   getEquipment,       // GET one equipment
   createEquipment,    // POST new equipment
   updateEquipment,    // PUT update equipment
-  removeEquipment,    // DELETE (soft delete) equipment
+  removeEquipment,
+  listDueMaintenance
+  // DELETE (soft delete) equipment
 } from "../controllers/equipmentController.js";
 
 const router = express.Router();
@@ -24,5 +26,7 @@ router.put("/:id", updateEquipment);
 
 // DELETE equipment (soft delete)
 router.delete("/:id", removeEquipment);
+
+router.get("/due-maintenance",listDueMaintenance);
 
 export default router;
